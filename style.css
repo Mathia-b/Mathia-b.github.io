@@ -692,9 +692,9 @@ img {
 
 .project-workflow-section > h3 {
   color: var(--blue-light);
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .case-workflow {
