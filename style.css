@@ -666,10 +666,10 @@ img {
 
 .case-label {
   color: var(--blue-light);
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 900;
-  letter-spacing: 0.12em;
-  margin-bottom: 12px;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
   text-transform: uppercase;
 }
 
