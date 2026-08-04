@@ -7,6 +7,7 @@
   --navy-soft: #111a2d;
   --blue: #4f7cff;
   --blue-light: #8fb0ff;
+  --custom: #7ca0f7
   --cyan: #7ee7ff;
   --ink: #172033;
   --text: #4b5872;
@@ -637,11 +638,12 @@ img {
 }
 
 .project-case-header h3 {
-  color: var(--white);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin: 8px 0 16px;
+    color: var(--white);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 8px 0 16px;
 }
 
 .project-summary {
@@ -665,7 +667,7 @@ img {
 }
 
 .case-label {
-  color: var(--blue-light);
+  color: var(--custom);
   font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.15em;
