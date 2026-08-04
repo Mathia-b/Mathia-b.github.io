@@ -692,8 +692,8 @@ img {
 
 .project-workflow-section > h3 {
   color: var(--blue-light);
-  font-size: 1.35rem;
-  font-weight: 850;
+  font-size: 1.75rem;
+  font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
