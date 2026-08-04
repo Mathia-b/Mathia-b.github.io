@@ -1198,4 +1198,7 @@ a:focus-visible {
 .hero-profile-stats {
   grid-template-columns: 1fr;
 }
+.project-case-study .case-label {
+  color: #7ee7ff !important;
+}
 }
