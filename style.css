@@ -622,6 +622,210 @@ img {
 /* ===============================
    PROJECTS
    =============================== */
+.project-case-study {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  margin-top: 50px;
+  padding: 48px;
+}
+
+.project-case-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 36px;
+  padding-bottom: 30px;
+}
+
+.project-case-header h3 {
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 8px 0 16px;
+}
+
+.project-summary {
+  color: #b5c0d5;
+  font-size: 1.05rem;
+  max-width: 760px;
+}
+
+.project-case-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+}
+
+.project-case-block {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.case-label {
+  color: var(--blue-light);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.project-case-block h4 {
+  color: var(--white);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.project-case-block p {
+  color: #b5c0d5;
+}
+
+.project-workflow-section {
+  margin-top: 44px;
+}
+
+.case-workflow {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.case-workflow-step {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 48px 180px 1fr;
+  padding: 18px 20px;
+}
+
+.workflow-step-number {
+  align-items: center;
+  background: rgba(79, 124, 255, 0.18);
+  border: 1px solid rgba(143, 176, 255, 0.3);
+  border-radius: 10px;
+  color: var(--blue-light);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.case-workflow-step strong {
+  color: var(--white);
+}
+
+.case-workflow-step p {
+  color: #9eabc3;
+  font-size: 0.9rem;
+}
+
+.case-workflow-arrow {
+  color: #60708d;
+  font-size: 1.3rem;
+  font-weight: 800;
+  padding-left: 21px;
+}
+
+.project-check-list,
+.project-result-list {
+  list-style: none;
+}
+
+.project-check-list li,
+.project-result-list li {
+  color: #d7deeb;
+  margin-bottom: 10px;
+  padding-left: 26px;
+  position: relative;
+}
+
+.project-check-list li::before {
+  color: #65e7a8;
+  content: "✓";
+  font-weight: 900;
+  left: 0;
+  position: absolute;
+}
+
+.project-result-list li::before {
+  color: var(--blue-light);
+  content: "•";
+  font-size: 1.3rem;
+  left: 4px;
+  position: absolute;
+  top: -4px;
+}
+
+.project-screenshot-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 36px;
+}
+
+.project-screenshot {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-screenshot img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  width: 100%;
+}
+
+.project-screenshot figcaption {
+  color: #b5c0d5;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 14px 16px;
+}
+
+@media (max-width: 900px) {
+  .project-case-grid,
+  .project-screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-workflow-step {
+    align-items: start;
+    grid-template-columns: 48px 1fr;
+  }
+
+  .case-workflow-step p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-case-study {
+    padding: 28px 20px;
+  }
+
+  .case-workflow-step {
+    grid-template-columns: 1fr;
+  }
+
+  .case-workflow-step p {
+    grid-column: 1;
+  }
+
+  .case-workflow-arrow {
+    padding-left: 0;
+    text-align: center;
+  }
+}
 
 .project-list {
   display: flex;
