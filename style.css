@@ -667,7 +667,7 @@ img {
 }
 
 .case-label {
-  color: var(--custom);
+  color: #326efc;
   font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.15em;
