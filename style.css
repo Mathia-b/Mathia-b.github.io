@@ -447,7 +447,7 @@ img {
 .hero-profile-wrap {
   display: flex;
   justify-content: flex-end;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .hero-profile-card {
