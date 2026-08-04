@@ -690,6 +690,13 @@ img {
   margin-top: 44px;
 }
 
+.project-workflow-section > h3 {
+  color: var(--blue-light);
+  font-size: 1.35rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .case-workflow {
   display: grid;
   gap: 12px;
