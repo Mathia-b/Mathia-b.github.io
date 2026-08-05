@@ -759,7 +759,8 @@ img {
 
 .project-check-list li::before {
   color: #65e7a8;
-  content: "✓";
+  content: "\2713";
+  font-family: Arial, sans-serif;
   font-weight: 900;
   left: 0;
   position: absolute;
@@ -767,7 +768,8 @@ img {
 
 .project-result-list li::before {
   color: var(--blue-light);
-  content: "•";
+  content: "\2022";
+  font-family: Arial, sans-serif;
   font-size: 1.3rem;
   left: 4px;
   position: absolute;
