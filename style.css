@@ -1320,4 +1320,57 @@ a:focus-visible {
   grid-template-columns: 1fr;
 }
 }
+/* Allow the enlarged image to extend outside the workflow section */
+.project-workflow-section,
+.case-workflow {
+  overflow: visible;
+}
 
+/* Workflow square */
+.case-workflow-step {
+  position: relative;
+}
+
+/* Hidden enlarged image */
+.workflow-hover-preview {
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  left: 50%;
+  opacity: 0;
+  padding: 8px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  transform: translate(-50%, 12px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+  visibility: hidden;
+  width: min(650px, 85vw);
+  z-index: 1000;
+}
+
+/* Enlarged image */
+.workflow-hover-preview img {
+  border-radius: 10px;
+  display: block;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Show image when hovering over the entire workflow square */
+.case-workflow-step:hover .workflow-hover-preview {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+/* Keep the hovered workflow square above the other squares */
+.case-workflow-step:hover {
+  z-index: 1001;
+}
