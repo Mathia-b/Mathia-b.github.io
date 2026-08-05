@@ -1374,3 +1374,26 @@ a:focus-visible {
 .case-workflow-step:hover {
   z-index: 1001;
 }
+.case-workflow {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  margin-top: 20px;
+}
+
+.case-workflow-step {
+  display: block !important;
+  min-width: 0;
+  padding: 22px;
+}
+@media (max-width: 900px) {
+  .case-workflow {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-workflow {
+    grid-template-columns: 1fr !important;
+  }
+}
