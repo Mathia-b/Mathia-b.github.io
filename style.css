@@ -785,6 +785,89 @@ img {
   justify-content: center;
   padding-top: 39px;
 }
+/* Allow hover previews to appear above the page */
+.project-workflow-section,
+.workflow-icon-row,
+.workflow-icon-step {
+  overflow: visible;
+}
+
+/* Make each workflow card the hover trigger */
+.workflow-icon-step {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hidden large preview window */
+.workflow-hover-preview {
+  background: #ffffff;
+  border: 1px solid rgba(143, 176, 255, 0.35);
+  border-radius: 20px;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  left: 50%;
+  max-height: 80vh;
+  max-width: 900px;
+  opacity: 0;
+  overflow: auto;
+  padding: 12px;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -46%) scale(0.96);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+  visibility: hidden;
+  width: min(850px, 88vw);
+  z-index: 5000;
+}
+
+/* Display preview during mouse hover or keyboard focus */
+.workflow-icon-step:hover .workflow-hover-preview,
+.workflow-icon-step:focus .workflow-hover-preview,
+.workflow-icon-step:focus-within .workflow-hover-preview {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
+
+/* Preview heading */
+.workflow-preview-title {
+  color: #172033 !important;
+  font-size: 1rem !important;
+  font-weight: 800;
+  margin: 2px 4px 10px;
+  text-align: left;
+}
+
+/* Large preview image */
+.workflow-hover-preview img {
+  border: 1px solid #dfe5ef;
+  border-radius: 12px;
+  display: block;
+  height: auto;
+  max-height: 68vh;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Slight emphasis on the card being hovered */
+.workflow-icon-step:hover .workflow-icon-box,
+.workflow-icon-step:focus .workflow-icon-box {
+  border-color: var(--blue-light);
+  box-shadow: 0 12px 35px rgba(79, 124, 255, 0.22);
+  transform: translateY(-3px);
+}
+
+.workflow-icon-box {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
 @media (max-width: 1100px) {
   .workflow-icon-row {
     grid-template-columns: repeat(3, 1fr);
