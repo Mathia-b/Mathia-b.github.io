@@ -776,31 +776,96 @@ img {
   top: -4px;
 }
 
-.project-screenshot-grid {
+.project-apps-section {
+  margin-top: 44px;
+}
+
+.app-workflow {
+  align-items: stretch;
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 36px;
+  gap: 12px;
+  grid-template-columns:
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr);
+  margin-top: 22px;
 }
 
-.project-screenshot {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+.app-node {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  padding: 20px 14px;
+  text-align: center;
 }
 
-.project-screenshot img {
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  width: 100%;
+.app-icon {
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  display: flex;
+  font-size: 1.15rem;
+  font-weight: 900;
+  height: 58px;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 58px;
 }
 
-.project-screenshot figcaption {
-  color: #b5c0d5;
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 14px 16px;
+.app-forms {
+  background: linear-gradient(135deg, #6b4acb, #8a63e6);
+}
+
+.app-excel {
+  background: linear-gradient(135deg, #107c41, #21a366);
+}
+
+.app-script {
+  background: linear-gradient(135deg, #2563eb, #4f7cff);
+  font-size: 0.9rem;
+}
+
+.app-automate {
+  background: linear-gradient(135deg, #0067b8, #4f9ee8);
+}
+
+.app-html {
+  background: linear-gradient(135deg, #e34f26, #f06529);
+  font-size: 0.72rem;
+}
+
+.app-outlook {
+  background: linear-gradient(135deg, #0078d4, #28a8ea);
+}
+
+.app-node strong {
+  color: var(--white);
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.app-node span {
+  color: #9eabc3;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.app-arrow {
+  align-items: center;
+  color: var(--blue-light);
+  display: flex;
+  font-size: 1.4rem;
+  font-weight: 900;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {
