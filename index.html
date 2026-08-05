@@ -10,7 +10,89 @@
   <title>Mathia Blomstrom | Automation Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  const workflowSteps = document.querySelectorAll(".workflow-icon-step");
 
+  function closeAllWorkflowPreviews() {
+    workflowSteps.forEach((step) => {
+      step.classList.remove("is-open");
+      step.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  workflowSteps.forEach((step) => {
+    const preview = step.querySelector(".workflow-hover-preview");
+    const closeButton = step.querySelector(".workflow-preview-close");
+
+    step.addEventListener("click", (event) => {
+      /*
+        Do not toggle the preview when someone clicks
+        inside the large display window.
+      */
+      if (event.target.closest(".workflow-hover-preview")) {
+        return;
+      }
+
+      const wasOpen = step.classList.contains("is-open");
+
+      closeAllWorkflowPreviews();
+
+      if (!wasOpen) {
+        step.classList.add("is-open");
+        step.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    if (preview) {
+      preview.addEventListener("click", (event) => {
+        /*
+          Prevent clicks inside the display window
+          from reaching the document click listener.
+        */
+        event.stopPropagation();
+      });
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeAllWorkflowPreviews();
+      });
+    }
+
+    step.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+
+        const wasOpen = step.classList.contains("is-open");
+
+        closeAllWorkflowPreviews();
+
+        if (!wasOpen) {
+          step.classList.add("is-open");
+          step.setAttribute("aria-expanded", "true");
+        }
+      }
+    });
+  });
+
+  /*
+    Clicking anywhere outside the display window
+    closes every open preview.
+  */
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".workflow-hover-preview")) {
+      closeAllWorkflowPreviews();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAllWorkflowPreviews();
+    }
+  });
+</script>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
