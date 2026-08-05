@@ -689,7 +689,137 @@ img {
 .project-workflow-section {
   margin-top: 44px;
 }
+.workflow-icon-row {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns:
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr) auto
+    minmax(120px, 1fr);
+  margin-top: 28px;
+}
 
+.workflow-icon-step {
+  min-width: 0;
+  position: relative;
+  text-align: left;
+}
+
+.workflow-icon-number {
+  align-items: center;
+  background: #367cff;
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(54, 124, 255, 0.35);
+  color: #ffffff;
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  height: 28px;
+  justify-content: center;
+  left: 8px;
+  position: absolute;
+  top: -10px;
+  width: 28px;
+  z-index: 2;
+}
+
+.workflow-icon-box {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(143, 176, 255, 0.28);
+  border-radius: 18px;
+  display: flex;
+  height: 112px;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+  padding: 22px;
+  width: 100%;
+}
+
+.workflow-icon-box img {
+  height: 66px;
+  object-fit: contain;
+  width: 66px;
+}
+
+/* Shows a placeholder until you upload the icons */
+.workflow-icon-box img:not([src]),
+.workflow-icon-box img[src=""] {
+  display: none;
+}
+
+.workflow-icon-box:has(img:not([src])),
+.workflow-icon-box:has(img[src=""]) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(79, 124, 255, 0.22),
+      rgba(126, 231, 255, 0.08)
+    );
+}
+
+.workflow-icon-step h4 {
+  color: var(--white);
+  font-size: 0.96rem;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.workflow-icon-step p {
+  color: #9eabc3;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.workflow-horizontal-arrow {
+  align-items: center;
+  color: #71809b;
+  display: flex;
+  font-size: 1.7rem;
+  font-weight: 700;
+  justify-content: center;
+  padding-top: 39px;
+}
+@media (max-width: 1100px) {
+  .workflow-icon-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .workflow-horizontal-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .workflow-icon-row {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-icon-step {
+    text-align: center;
+  }
+
+  .workflow-icon-number {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .workflow-icon-box {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 220px;
+  }
+
+  .workflow-icon-step p {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
 .project-workflow-section > h3 {
   color: var(--blue-light);
   font-size: 2rem;
