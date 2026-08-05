@@ -638,7 +638,7 @@ img {
 }
 
 .project-case-header h3 {
-    color: var(--white);
+    color: var(--blue);
     font-size: clamp(1.6rem, 2.5vw, 2.4rem);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -676,7 +676,7 @@ img {
 }
 
 .project-case-block h4 {
-  color: var(--blue);
+  color: var(--muted);
   font-size: 1.2rem;
   line-height: 1.4;
   margin-bottom: 12px;
