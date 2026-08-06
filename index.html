@@ -26,6 +26,1013 @@
 
     step.addEventListener("click", (event) => {
       /*
+        Do not toggle the preview when someone clicks
+        inside the large display window.
+      */
+      if (event.target.closest(".workflow-hover-preview")) {
+        return;
+      }
+
+      const wasOpen = step.classList.contains("is-open");
+
+      closeAllWorkflowPreviews();
+
+      if (!wasOpen) {
+        step.classList.add("is-open");
+        step.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    if (preview) {
+      preview.addEventListener("click", (event) => {
+        /*
+          Prevent clicks inside the display window
+          from reaching the document click listener.
+        */
+        event.stopPropagation();
+      });
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeAllWorkflowPreviews();
+      });
+    }
+
+    step.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+
+        const wasOpen = step.classList.contains("is-open");
+
+        closeAllWorkflowPreviews();
+
+        if (!wasOpen) {
+          step.classList.add("is-open");
+          step.setAttribute("aria-expanded", "true");
+        }
+      }
+    });
+  });
+
+  /*
+    Clicking anywhere outside the display window
+    closes every open preview.
+  */
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".workflow-hover-preview")) {
+      closeAllWorkflowPreviews();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAllWorkflowPreviews();
+    }
+  });
+</script>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Go to homepage">
+        <span class="brand-mark">MB</span>
+        <span class="brand-text">Mathia Blomstrom</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-grid hero-grid-profile">
+        <div class="hero-copy">
+          <p class="eyebrow">Business Process Automation Portfolio</p>
+
+          <h1>
+            I turn manual work into
+            <span>clear, scalable workflows.</span>
+          </h1>
+
+          <p class="hero-summary">
+            I design practical business solutions using Power Automate,
+            Excel, Office Scripts, HTML, CSS, Power Query, and AI.
+            My work reduces repetitive tasks, improves reporting, and
+            creates more reliable operational processes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              Explore My Work
+            </a>
+
+            <a class="button button-secondary" href="#contact">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <span class="meta-label">Focus</span>
+              <span class="meta-value">Automation & AI Operations</span>
+            </div>
+
+            <div>
+              <span class="meta-label">Tools</span>
+              <span class="meta-value">Microsoft Power Platform</span>
+            </div>
+
+            <div>
+              <span class="meta-label">Approach</span>
+              <span class="meta-value">User-Centered & Practical</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-profile-wrap">
+          <div class="hero-profile-card">
+            <div class="hero-photo-frame">
+              <img
+                class="hero-profile-photo"
+                src="images/profile-photo.jpg"
+                alt="Professional headshot of Mathia Blomstrom"
+              >
+            </div>
+
+            <div class="hero-profile-info">
+              <p class="hero-profile-name">Mathia Blomstrom</p>
+              <p class="hero-profile-role">
+                Automation â¢ AI Operations â¢ Process Improvement
+              </p>
+            </div>
+
+            <div class="hero-profile-stats">
+              <div>
+                <span>Build</span>
+                <strong>Workflows</strong>
+              </div>
+
+              <div>
+                <span>Improve</span>
+                <strong>Operations</strong>
+              </div>
+
+              <div>
+                <span>Deliver</span>
+                <strong>Insights</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="about">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow eyebrow-dark">About Me</p>
+          <h2 class="section-heading">
+            Operations experience meets technical problem-solving.
+          </h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I combine operational leadership, process improvement,
+            data analysis, and user-centered design to build tools
+            that solve real business problems.
+          </p>
+
+          <p>
+            I am especially interested in workflows that eliminate
+            repetitive work, create more consistent reporting, and make
+            information easier for teams to use.
+          </p>
+
+          <p>
+            My goal is not simply to automate a task. I focus on creating
+            solutions that are understandable, maintainable, and useful
+            to the people who rely on them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="skills">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow eyebrow-dark">Capabilities</p>
+          <h2 class="section-heading">Tools I use to build better systems.</h2>
+          <p class="section-copy">
+            A blend of automation, reporting, design, and operational
+            problem-solving.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card">
+            <span class="capability-index">01</span>
+            <h3>Power Automate</h3>
+            <p>
+              Automated workflows, conditional logic, notifications,
+              approvals, document generation, and system integrations.
+            </p>
+          </article>
+
+          <article class="capability-card">
+            <span class="capability-index">02</span>
+            <h3>Excel & Power Query</h3>
+            <p>
+              Dashboards, reporting tools, formulas, data cleanup,
+              transformations, structured tables, and KPI tracking.
+            </p>
+          </article>
+
+          <article class="capability-card">
+            <span class="capability-index">03</span>
+            <h3>Office Scripts</h3>
+            <p>
+              TypeScript-based Excel automation for formatting,
+              calculations, record updates, and report preparation.
+            </p>
+          </article>
+
+          <article class="capability-card">
+            <span class="capability-index">04</span>
+            <h3>HTML & CSS</h3>
+            <p>
+              Responsive emails, web pages, automated documents,
+              professional layouts, and user-friendly interfaces.
+            </p>
+          </article>
+
+          <article class="capability-card">
+            <span class="capability-index">05</span>
+            <h3>Data Analysis</h3>
+            <p>
+              Trend analysis, year-over-year comparisons,
+              reporting, KPI interpretation, and data storytelling.
+            </p>
+          </article>
+
+          <article class="capability-card">
+            <span class="capability-index">06</span>
+            <h3>AI Operations</h3>
+            <p>
+              AI-assisted workflows, documentation, content generation,
+              process support, and operational problem-solving.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="projects">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Selected Work</p>
+
+          </article>
+          <h2 class="section-heading light-heading">
+            Projects built around real operational needs.
+          </h2>
+          <p class="section-copy light-copy">
+            Each project begins with a business problem and ends with
+            a more efficient, consistent, and usable process.
+          </p>
+        </div>
+          
+         <article class="project-case-study">
+          
+            <div class="project-case-header">
+              <p class="project-type">Power Automate Workflow</p>
+          
+          <h3>Automated Incident Report System</h3>
+          
+          <p class="project-summary">
+            A multi-step automation that converts digital form submissions
+            into standardized, professionally formatted incident reports.
+          </p>
+          
+            </div>
+          
+            <div class="project-case-grid">
+          
+          <section class="project-case-block">
+           <p class="case-label" style="color: #c72222 !important;">
+             Problem
+           </p>
+            
+            <h4>
+              Manual report formatting created an inconsistent process.
+            </h4>
+          
+            <p>
+              Staff were manually formatting incident reports, which required
+              additional administrative time and made it difficult to maintain
+              a consistent report structure.
+            </p>
+          </section>
+          
+          <section class="project-case-block">
+            <p class="case-label" style="color: #07ab3e !important;">
+             Solution
+           </p>
+          
+            <h4>
+              Built an automated document-generation workflow.
+            </h4>
+          
+            <p>
+              I created a workflow using Microsoft Forms, Excel,
+              Office Scripts, Power Automate, HTML, and Outlook.
+              The system collects the information, processes the data,
+              generates a formatted report, and emails it to the appropriate recipients.
+            </p>
+          </section>
+            </div>
+          
+            <section class="project-workflow-section">
+
+              <p class="case-label">Automated Workflow</p>
+            
+              <div class="workflow-icon-row">
+            
+                <!-- STEP 1: MICROSOFT FORMS -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">1</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/forms-icon.png"
+                      alt="Microsoft Forms icon"
+                    >
+                  </div>
+            
+                  <h4>Microsoft Forms</h4>
+            
+                  <p>
+                    Staff submit incident information through a digital form.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close Microsoft Forms preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      Microsoft Forms
+                    </p>
+            
+                    <img
+                      src="images/forms-preview.png"
+                      alt="Large preview of the Microsoft Forms step"
+                    >
+                  </div>
+                </div>
+            
+            
+                <div class="workflow-horizontal-arrow">→</div>
+            
+            
+                <!-- STEP 2: EXCEL -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">2</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/excel-icon.png"
+                      alt="Microsoft Excel icon"
+                    >
+                  </div>
+            
+                  <h4>Excel</h4>
+            
+                  <p>
+                    Form responses are stored in a structured Excel table.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close Excel preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      Excel
+                    </p>
+            
+                    <img
+                      src="images/excel-preview.png"
+                      alt="Large preview of the Excel step"
+                    >
+                  </div>
+                </div>
+            
+            
+                <div class="workflow-horizontal-arrow">→</div>
+            
+            
+                <!-- STEP 3: OFFICE SCRIPTS -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">3</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/office-scripts-icon.png"
+                      alt="Office Scripts icon"
+                    >
+                  </div>
+            
+                  <h4>Office Scripts</h4>
+            
+                  <p>
+                    The script processes and formats the submitted information.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close Office Scripts preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      Office Scripts
+                    </p>
+            
+                    <img
+                      src="images/office-scripts-preview.png"
+                      alt="Large preview of the Office Scripts step"
+                    >
+                  </div>
+                </div>
+            
+            
+                <div class="workflow-horizontal-arrow">→</div>
+            
+            
+                <!-- STEP 4: POWER AUTOMATE -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">4</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/power-automate-icon.png"
+                      alt="Power Automate icon"
+                    >
+                  </div>
+            
+                  <h4>Power Automate</h4>
+            
+                  <p>
+                    The workflow runs the automation and generates the report.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close Power Automate preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      Power Automate
+                    </p>
+            
+                    <img
+                      src="images/power-automate-preview.png"
+                      alt="Large preview of the Power Automate workflow"
+                    >
+                  </div>
+                </div>
+            
+            
+                <div class="workflow-horizontal-arrow">→</div>
+            
+            
+                <!-- STEP 5: HTML REPORT -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">5</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/html-icon.png"
+                      alt="HTML icon"
+                    >
+                  </div>
+            
+                  <h4>HTML Report</h4>
+            
+                  <p>
+                    Incident information is formatted into a professional report.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close HTML report preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      HTML Report
+                    </p>
+            
+                    <img
+                      src="images/html-report-preview.png"
+                      alt="Large preview of the generated HTML report"
+                    >
+                  </div>
+                </div>
+            
+            
+                <div class="workflow-horizontal-arrow">→</div>
+            
+            
+                <!-- STEP 6: OUTLOOK -->
+                <div
+                  class="workflow-icon-step"
+                  tabindex="0"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="workflow-icon-number">6</span>
+            
+                  <div class="workflow-icon-box">
+                    <img
+                      src="images/outlook-icon.png"
+                      alt="Microsoft Outlook icon"
+                    >
+                  </div>
+            
+                  <h4>Outlook</h4>
+            
+                  <p>
+                    The completed report is emailed to the appropriate recipients.
+                  </p>
+            
+                  <div class="workflow-hover-preview">
+                    <button
+                      class="workflow-preview-close"
+                      type="button"
+                      aria-label="Close Outlook preview"
+                    >
+                      ×
+                    </button>
+            
+                    <p class="workflow-preview-title">
+                      Outlook Email
+                    </p>
+            
+                    <img
+                      src="images/outlook-preview.png"
+                      alt="Large preview of the Outlook email"
+                    >
+                  </div>
+                </div>
+            
+              </div>
+            
+            </section>
+          
+            <div class="project-case-grid">
+          
+          <section class="project-case-block">
+            <p class="case-label">Technology</p>
+          
+            <ul class="project-check-list">
+              <li>Power Automate</li>
+              <li>Microsoft Forms</li>
+              <li>Excel</li>
+              <li>Office Scripts</li>
+              <li>HTML</li>
+              <li>Outlook</li>
+            </ul>
+          </section>
+          
+          <section class="project-case-block">
+            <p class="case-label">Results</p>
+          
+            <ul class="project-result-list">
+              <li>Eliminated repetitive manual formatting</li>
+              <li>Standardized the incident-report structure</li>
+              <li>Improved report consistency</li>
+              <li>Accelerated report distribution</li>
+              <li>Created a more repeatable administrative process</li>
+            </ul>
+          </section>
+          
+            </div>
+          
+            <div class="project-screenshot-grid">
+          
+          <figure class="project-screenshot">
+            <img
+              src="images/incident-report-flow.png"
+              alt="Screenshot of the Power Automate incident report workflow"
+            >
+          
+            <figcaption>
+              Power Automate workflow
+            </figcaption>
+          </figure>
+          
+          <figure class="project-screenshot">
+            <img
+              src="images/incident-report-output.png"
+              alt="Example of the automated incident report output"
+            >
+          
+            <figcaption>
+              Automated report output
+            </figcaption>
+          </figure>
+          
+          <figure class="project-screenshot">
+            <img
+              src="images/incident-report-email.png"
+              alt="Example of the automated incident report email"
+            >
+          
+            <figcaption>
+              Final Outlook email
+            </figcaption>
+          </figure>
+          
+            </div>
+
+        <div class="project-list">
+          <article class="project-showcase">
+            <div class="project-number">01</div>
+
+            <div class="project-main">
+              <p class="project-type">Power Automate Workflow</p>
+              <h3>Automated Incident Report System</h3>
+
+              <p class="project-description">
+                A multi-step workflow that transforms digital form
+                submissions into standardized, professionally formatted
+                incident reports and automatically distributes them to
+                the appropriate leaders.
+              </p>
+
+              <div class="flow-line">
+                <span>Microsoft Forms</span>
+                <i>â</i>
+                <span>Excel</span>
+                <i>â</i>
+                <span>Office Scripts</span>
+                <i>â</i>
+                <span>Power Automate</span>
+                <i>â</i>
+                <span>HTML Report</span>
+              </div>
+
+              <div class="tag-row">
+                <span>Power Automate</span>
+                <span>Excel</span>
+                <span>Office Scripts</span>
+                <span>HTML</span>
+                <span>Outlook</span>
+              </div>
+            </div>
+
+            <div class="project-outcome">
+              <span class="outcome-label">Outcome</span>
+              <strong>More consistent documentation with less manual formatting.</strong>
+            </div>
+          </article>
+
+          <article class="project-showcase">
+            <div class="project-number">02</div>
+
+            <div class="project-main">
+              <p class="project-type">Excel Reporting</p>
+              <h3>Child Watch Reporting Dashboard</h3>
+
+              <p class="project-description">
+                A reporting solution that organizes attendance data,
+                compares performance across time periods, and helps
+                leaders understand participation patterns and program demand.
+              </p>
+
+              <div class="flow-line">
+                <span>Raw Data</span>
+                <i>â</i>
+                <span>Excel Tables</span>
+                <i>â</i>
+                <span>Analysis</span>
+                <i>â</i>
+                <span>Dashboard</span>
+              </div>
+
+              <div class="tag-row">
+                <span>Excel</span>
+                <span>Power Query</span>
+                <span>Dashboards</span>
+                <span>Data Analysis</span>
+              </div>
+            </div>
+
+            <div class="project-outcome">
+              <span class="outcome-label">Outcome</span>
+              <strong>Clearer trends and easier year-over-year comparison.</strong>
+            </div>
+          </article>
+
+          <article class="project-showcase">
+            <div class="project-number">03</div>
+
+            <div class="project-main">
+              <p class="project-type">Workflow Automation</p>
+              <h3>Member Follow-Up Process</h3>
+
+              <p class="project-description">
+                A structured system for tracking consultations,
+                assigning follow-up responsibilities, and improving
+                consistency in member engagement and communication.
+              </p>
+
+              <div class="flow-line">
+                <span>Member Data</span>
+                <i>â</i>
+                <span>Excel Tracker</span>
+                <i>â</i>
+                <span>Power Automate</span>
+                <i>â</i>
+                <span>Follow-Up</span>
+              </div>
+
+              <div class="tag-row">
+                <span>Power Automate</span>
+                <span>Excel</span>
+                <span>Outlook</span>
+                <span>Process Design</span>
+              </div>
+            </div>
+
+            <div class="project-outcome">
+              <span class="outcome-label">Outcome</span>
+              <strong>Better accountability and more consistent outreach.</strong>
+            </div>
+          </article>
+
+          <article class="project-showcase">
+            <div class="project-number">04</div>
+
+            <div class="project-main">
+              <p class="project-type">Automated Communication</p>
+              <h3>Goal Tracking Notification</h3>
+
+              <p class="project-description">
+                An automated system that checks performance against
+                a target and sends a polished HTML message when the
+                defined goal is reached.
+              </p>
+
+              <div class="flow-line">
+                <span>Excel Data</span>
+                <i>â</i>
+                <span>Condition Check</span>
+                <i>â</i>
+                <span>Power Automate</span>
+                <i>â</i>
+                <span>HTML Email</span>
+              </div>
+
+              <div class="tag-row">
+                <span>Power Automate</span>
+                <span>Excel</span>
+                <span>HTML</span>
+                <span>Conditional Logic</span>
+              </div>
+            </div>
+
+            <div class="project-outcome">
+              <span class="outcome-label">Outcome</span>
+              <strong>Automatic recognition without manual monitoring.</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="process">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow eyebrow-dark">How I Work</p>
+          <h2 class="section-heading">A practical four-step process.</h2>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span>01</span>
+            <h3>Understand</h3>
+            <p>
+              Identify the current process, pain points, users,
+              risks, and desired outcome.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <span>02</span>
+            <h3>Map</h3>
+            <p>
+              Document inputs, owners, conditions, exceptions,
+              systems, and final outputs.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>
+              Create the workflow, test different scenarios,
+              and improve usability.
+            </p>
+          </article>
+
+          <article class="process-card">
+            <span>04</span>
+            <h3>Improve</h3>
+            <p>
+              Review results, gather feedback, document lessons,
+              and refine the solution.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-accent">
+      <div class="container impact-grid">
+        <div>
+          <p class="eyebrow">What My Work Prioritizes</p>
+          <h2 class="section-heading light-heading">
+            Automation that improves the operation, not just the task.
+          </h2>
+        </div>
+
+        <div class="impact-list">
+          <div>
+            <span>01</span>
+            <p>Less repetitive administrative work</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>More consistent documentation and communication</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>Better visibility into data and performance</p>
+          </div>
+
+          <div>
+            <span>04</span>
+            <p>Systems that are easier for teams to use and maintain</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow eyebrow-dark">Contact</p>
+          <h2 class="section-heading">
+            Letâs build a better process.
+          </h2>
+
+          <p class="section-copy">
+            I am interested in opportunities involving business process
+            automation, AI operations, technical operations, project
+            coordination, data analysis, and process improvement.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="button button-dark" href="mailto:Mathia42@gmail.com">
+            Email Me
+          </a>
+
+          <a
+            class="button button-outline"
+            href="https://www.linkedin.com/in/mathia-blomstrom-07844a108"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="button button-outline"
+            href="https://mathia-b.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="button button-outline"
+            href="Mathia-Blomstrom-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>Â© 2026 Mathia Blomstrom</p>
+      <p>Built with HTML and CSS</p>
+    </div>
+  </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Mathia Blomstrom's portfolio featuring Power Automate, Excel, Office Scripts, AI operations, data analysis, and business process automation projects."
+  >
+  <title>Mathia Blomstrom | Automation Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  const workflowSteps = document.querySelectorAll(".workflow-icon-step");
+
+  function closeAllWorkflowPreviews() {
+    workflowSteps.forEach((step) => {
+      step.classList.remove("is-open");
+      step.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  workflowSteps.forEach((step) => {
+    const preview = step.querySelector(".workflow-hover-preview");
+    const closeButton = step.querySelector(".workflow-preview-close");
+
+    step.addEventListener("click", (event) => {
+      /*
         Do not toggle the preview when someone click
         inside the large display window.
       */
