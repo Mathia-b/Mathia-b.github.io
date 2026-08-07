@@ -774,7 +774,15 @@ img {
   outline: none;
 }
 
-.workflow-icon-step:hover .workflow-hover-preview,
+@media (hover: hover) and (pointer: fine) {
+  .workflow-icon-step:not(.preview-closed):hover .workflow-hover-preview {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+  }
+}
+
 .workflow-icon-step:focus-within .workflow-hover-preview,
 .workflow-icon-step.is-open .workflow-hover-preview {
   opacity: 1;
