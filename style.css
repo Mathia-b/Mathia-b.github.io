@@ -349,92 +349,6 @@ img {
   font-weight: 700;
 }
 
-.hero-panel {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-.panel-topline {
-  align-items: center;
-  color: #c8d2e5;
-  display: flex;
-  font-size: 0.82rem;
-  font-weight: 800;
-  gap: 10px;
-  margin-bottom: 28px;
-  text-transform: uppercase;
-}
-
-.status-dot {
-  background: #65e7a8;
-  border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(101, 231, 168, 0.12);
-  height: 8px;
-  width: 8px;
-}
-
-.workflow-stack {
-  display: flex;
-  flex-direction: column;
-}
-
-.workflow-node {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 14px;
-  display: flex;
-  gap: 16px;
-  padding: 18px;
-}
-
-.workflow-node div {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.workflow-node strong {
-  color: var(--white);
-  font-size: 0.98rem;
-}
-
-.workflow-node span:last-child {
-  color: #9eabc3;
-  font-size: 0.82rem;
-}
-
-.node-number {
-  align-items: center;
-  background: rgba(79, 124, 255, 0.18);
-  border: 1px solid rgba(143, 176, 255, 0.3);
-  border-radius: 10px;
-  color: var(--blue-light);
-  display: inline-flex;
-  font-size: 0.76rem;
-  font-weight: 900;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
-}
-
-.workflow-connector {
-  background: linear-gradient(to bottom, rgba(143, 176, 255, 0.5), transparent);
-  height: 18px;
-  margin-left: 39px;
-  width: 1px;
-}
-
-.panel-footer {
-  color: #7f8aa1;
-  display: flex;
-  font-size: 0.76rem;
-  justify-content: space-between;
-  margin-top: 24px;
-}
 /* ===============================
    HERO PROFILE CARD
    =============================== */
@@ -447,7 +361,7 @@ img {
 .hero-profile-wrap {
   display: flex;
   justify-content: flex-end;
-  padding-top: 00px;
+  padding-top: 0;
 }
 
 .hero-profile-card {
@@ -675,6 +589,15 @@ img {
   text-transform: uppercase;
 }
 
+.problem-label {
+  color: #c72222;
+}
+
+.solution-label {
+  color: #07ab3e;
+}
+
+
 .project-case-block h4 {
   color: var(--muted);
   font-size: 1.2rem;
@@ -825,11 +748,39 @@ img {
   z-index: 5000;
 }
 
-/* Display preview during mouse hover or keyboard focus */
+.workflow-preview-close {
+  align-items: center;
+  background: #172033;
+  border: 0;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.35rem;
+  font-weight: 700;
+  height: 38px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 38px;
+  z-index: 2;
+}
+
+.workflow-preview-close:hover,
+.workflow-preview-close:focus-visible {
+  background: var(--blue);
+  outline: none;
+}
+
+
+/* Display preview during mouse hover, keyboard focus, or tap */
 .workflow-icon-step:hover .workflow-hover-preview,
-.workflow-icon-step:focus .workflow-hover-preview,
-.workflow-icon-step:focus-within .workflow-hover-preview {
+.workflow-icon-step:focus-within .workflow-hover-preview,
+.workflow-icon-step.is-open .workflow-hover-preview {
   opacity: 1;
+  pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
 }
@@ -841,6 +792,8 @@ img {
   font-weight: 800;
   margin: 2px 4px 10px;
   text-align: left;
+
+  padding-right: 52px;
 }
 
 /* Large preview image */
@@ -903,60 +856,6 @@ img {
     max-width: 300px;
   }
 }
-.project-workflow-section > h3 {
-  color: var(--blue-light);
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.case-workflow {
-  display: grid;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.case-workflow-step {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  display: grid;
-  gap: 18px;
-  grid-template-columns: 48px 180px 1fr;
-  padding: 18px 20px;
-}
-
-.workflow-step-number {
-  align-items: center;
-  background: rgba(79, 124, 255, 0.18);
-  border: 1px solid rgba(143, 176, 255, 0.3);
-  border-radius: 10px;
-  color: var(--blue-light);
-  display: flex;
-  font-size: 0.72rem;
-  font-weight: 900;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
-}
-
-.case-workflow-step strong {
-  color: var(--white);
-}
-
-.case-workflow-step p {
-  color: #9eabc3;
-  font-size: 0.9rem;
-}
-
-.case-workflow-arrow {
-  color: #60708d;
-  font-size: 1.3rem;
-  font-weight: 800;
-  padding-left: 21px;
-}
-
 .project-check-list,
 .project-result-list {
   list-style: none;
@@ -989,116 +888,11 @@ img {
   top: -4px;
 }
 
-.project-apps-section {
-  margin-top: 44px;
-}
-
-.app-workflow {
-  align-items: stretch;
-  display: grid;
-  gap: 12px;
-  grid-template-columns:
-    minmax(120px, 1fr) auto
-    minmax(120px, 1fr) auto
-    minmax(120px, 1fr) auto
-    minmax(120px, 1fr) auto
-    minmax(120px, 1fr) auto
-    minmax(120px, 1fr);
-  margin-top: 22px;
-}
-
-.app-node {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  min-height: 180px;
-  padding: 20px 14px;
-  text-align: center;
-}
-
-.app-icon {
-  align-items: center;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-  display: flex;
-  font-size: 1.15rem;
-  font-weight: 900;
-  height: 58px;
-  justify-content: center;
-  margin-bottom: 16px;
-  width: 58px;
-}
-
-.app-forms {
-  background: linear-gradient(135deg, #6b4acb, #8a63e6);
-}
-
-.app-excel {
-  background: linear-gradient(135deg, #107c41, #21a366);
-}
-
-.app-script {
-  background: linear-gradient(135deg, #2563eb, #4f7cff);
-  font-size: 0.9rem;
-}
-
-.app-automate {
-  background: linear-gradient(135deg, #0067b8, #4f9ee8);
-}
-
-.app-html {
-  background: linear-gradient(135deg, #e34f26, #f06529);
-  font-size: 0.72rem;
-}
-
-.app-outlook {
-  background: linear-gradient(135deg, #0078d4, #28a8ea);
-}
-
-.app-node strong {
-  color: var(--white);
-  font-size: 0.9rem;
-  line-height: 1.25;
-}
-
-.app-node span {
-  color: #9eabc3;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  margin-top: 8px;
-}
-
-.app-arrow {
-  align-items: center;
-  color: var(--blue-light);
-  display: flex;
-  font-size: 1.4rem;
-  font-weight: 900;
-  justify-content: center;
-}
 @media (max-width: 1100px) {
-  .app-workflow {
-    grid-template-columns: repeat(3, 1fr);
   }
-
-  .app-arrow {
-    display: none;
-  }
-}
 
 @media (max-width: 700px) {
-  .app-workflow {
-    grid-template-columns: 1fr;
   }
-
-  .app-node {
-    min-height: auto;
-  }
-}
 
 @media (max-width: 900px) {
   .project-case-grid,
@@ -1106,34 +900,14 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .case-workflow-step {
-    align-items: start;
-    grid-template-columns: 48px 1fr;
   }
-
-  .case-workflow-step p {
-    grid-column: 2;
-  }
-}
 
 @media (max-width: 600px) {
   .project-case-study {
     padding: 28px 20px;
   }
 
-  .case-workflow-step {
-    grid-template-columns: 1fr;
   }
-
-  .case-workflow-step p {
-    grid-column: 1;
-  }
-
-  .case-workflow-arrow {
-    padding-left: 0;
-    text-align: center;
-  }
-}
 .project-list {
   display: flex;
   flex-direction: column;
@@ -1360,6 +1134,18 @@ a:focus-visible {
   color: var(--white);
 }
 
+@media (max-width: 700px) {
+  .workflow-hover-preview {
+    max-height: 84vh;
+    padding: 10px;
+    width: min(94vw, 850px);
+  }
+
+  .workflow-hover-preview img {
+    max-height: 70vh;
+  }
+}
+
 /* ===============================
    RESPONSIVE
    =============================== */
@@ -1381,10 +1167,6 @@ a:focus-visible {
 .hero-profile-card {
   max-width: 390px;
 }
-
-  .hero-panel {
-    max-width: 720px;
-  }
 
   .capability-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1482,16 +1264,7 @@ a:focus-visible {
     width: 100%;
   }
 
-  .hero-panel {
-    padding: 18px;
-  }
-
-  .panel-footer {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-   .hero-photo-frame {
+  .hero-photo-frame {
   height: 230px;
   top: -96px;
   width: 230px;
@@ -1505,4 +1278,3 @@ a:focus-visible {
   grid-template-columns: 1fr;
 }
 }
-
