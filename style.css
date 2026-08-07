@@ -589,6 +589,10 @@ img {
   text-transform: uppercase;
 }
 
+.project-workflow-section + .project-case-grid {
+  margin-top: 55px;
+}
+
 .problem-label {
   color: #c72222;
 }
