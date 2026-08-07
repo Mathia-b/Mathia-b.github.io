@@ -589,10 +589,6 @@ img {
   text-transform: uppercase;
 }
 
-.project-workflow-section + .project-case-grid {
-  margin-top: 55px;
-}
-
 .problem-label {
   color: #c72222;
 }
@@ -1288,4 +1284,8 @@ a:focus-visible {
 .hero-profile-stats {
   grid-template-columns: 1fr;
 }
+}
+
+.project-workflow-section + .project-case-grid {
+  margin-top: 55px;
 }
