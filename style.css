@@ -582,10 +582,10 @@ img {
 
 .case-label {
   color: #326efc;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 900;
   letter-spacing: 0.15em;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-transform: uppercase;
 }
 
@@ -607,7 +607,7 @@ img {
 
 .project-case-block p {
   color: #b5c0d5;
-  font-size: .75rem;
+  font-size: .90rem;
 }
 
 .project-workflow-section {
