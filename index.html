@@ -1144,16 +1144,7 @@
           closeButton.addEventListener("click", (event) => {
             event.preventDefault();
             event.stopPropagation();
-        
-            step.classList.remove("is-open");
-            step.classList.add("preview-closed");
-            step.setAttribute("aria-expanded", "false");
-        
-            step.blur();
-          });
-        
-          step.addEventListener("mouseleave", () => {
-            step.classList.remove("preview-closed");
+            closeAllWorkflowPreviews();
           });
         }
       });
