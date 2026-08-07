@@ -600,7 +600,7 @@ img {
 
 .project-case-block h4 {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: .90rem;
   line-height: 1.4;
   margin-bottom: 8px;
 }
