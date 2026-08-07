@@ -505,7 +505,22 @@ img {
 /* ===============================
    PROJECTS
    =============================== */
+.case-label {
+  color: #326efc;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
 
+.problem-label {
+  color: #c72222;
+}
+
+.solution-label {
+  color: #07ab3e;
+}
 .project-list {
   display: flex;
   flex-direction: column;
