@@ -577,7 +577,7 @@ img {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 18px;
-  padding: 28px;
+  padding: 20px 28px;
 }
 
 .case-label {
@@ -585,7 +585,7 @@ img {
   font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.15em;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   text-transform: uppercase;
 }
 
@@ -600,13 +600,14 @@ img {
 
 .project-case-block h4 {
   color: var(--muted);
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.4;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .project-case-block p {
   color: #b5c0d5;
+  font-size: .75rem;
 }
 
 .project-workflow-section {
