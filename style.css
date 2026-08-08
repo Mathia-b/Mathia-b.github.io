@@ -775,16 +775,66 @@ img {
   outline: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .workflow-icon-step:not(.preview-closed):hover .workflow-hover-preview {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-    visibility: visible;
-  }
+/* ===============================
+   WORKFLOW HOVER MENU
+   =============================== */
+
+.workflow-action-menu {
+  background: #172033;
+  border: 1px solid rgba(143, 176, 255, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+  left: calc(100% + 10px);
+  opacity: 0;
+  padding: 6px;
+  pointer-events: none;
+  position: absolute;
+  top: 32px;
+
+  transform: translateX(-6px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+
+  visibility: hidden;
+  width: 120px;
+  z-index: 100;
 }
 
-.workflow-icon-step:focus-within .workflow-hover-preview,
+.workflow-icon-step:hover .workflow-action-menu,
+.workflow-action-menu:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.workflow-view-image {
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.workflow-view-image:hover,
+.workflow-view-image:focus-visible {
+  background: rgba(79, 124, 255, 0.22);
+  color: var(--blue-light);
+  outline: none;
+}
+
+
+/* LARGE PREVIEW OPENS ONLY AFTER CLICK */
+
 .workflow-icon-step.is-open .workflow-hover-preview {
   opacity: 1;
   pointer-events: auto;
