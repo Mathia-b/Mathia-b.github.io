@@ -1215,59 +1215,134 @@
       const workflowSteps =
         document.querySelectorAll(".workflow-icon-step");
   
+      const allPreviews =
+        document.querySelectorAll(".workflow-hover-preview");
+  
       function closeAllWorkflowPreviews() {
+  
+        allPreviews.forEach((preview) => {
+          preview.classList.remove("is-open");
+        });
+  
         workflowSteps.forEach((step) => {
           step.classList.remove("is-open");
           step.setAttribute("aria-expanded", "false");
         });
+  
       }
+  
   
       workflowSteps.forEach((step) => {
   
-        const viewButton =
-          step.querySelector(".workflow-view-image");
+        const viewButtons =
+          step.querySelectorAll(".workflow-view-image");
   
-        const closeButton =
-          step.querySelector(".workflow-preview-close");
+        const closeButtons =
+          step.querySelectorAll(".workflow-preview-close");
   
-        if (viewButton) {
-          viewButton.addEventListener("click", (event) => {
+        const previews =
+          step.querySelectorAll(".workflow-hover-preview");
+  
+  
+        /* OPEN IMAGE */
+  
+        viewButtons.forEach((button, index) => {
+  
+          button.addEventListener("click", (event) => {
   
             event.preventDefault();
             event.stopPropagation();
   
             closeAllWorkflowPreviews();
   
-            step.classList.add("is-open");
-            step.setAttribute("aria-expanded", "true");
+            let previewToOpen;
+  
+            const previewId =
+              button.getAttribute("data-preview");
+  
+            if (previewId) {
+  
+              previewToOpen =
+                document.getElementById(previewId);
+  
+            } else {
+  
+              previewToOpen =
+                previews[index] || previews[0];
+  
+            }
+  
+            if (previewToOpen) {
+  
+              previewToOpen.classList.add("is-open");
+  
+              step.classList.add("is-open");
+  
+              step.setAttribute(
+                "aria-expanded",
+                "true"
+              );
+  
+            }
   
           });
-        }
   
-        if (closeButton) {
+        });
+  
+  
+        /* CLOSE IMAGE */
+  
+        closeButtons.forEach((closeButton) => {
+  
           closeButton.addEventListener("click", (event) => {
   
             event.preventDefault();
             event.stopPropagation();
   
+            const preview =
+              closeButton.closest(
+                ".workflow-hover-preview"
+              );
+  
+            if (preview) {
+              preview.classList.remove("is-open");
+            }
+  
             step.classList.remove("is-open");
-            step.setAttribute("aria-expanded", "false");
+  
+            step.setAttribute(
+              "aria-expanded",
+              "false"
+            );
   
           });
-        }
+  
+        });
   
       });
+  
+  
+      /* CLICK OUTSIDE TO CLOSE */
   
       document.addEventListener("click", (event) => {
   
         if (
-          !event.target.closest(".workflow-hover-preview") &&
-          !event.target.closest(".workflow-view-image")
+          !event.target.closest(
+            ".workflow-hover-preview"
+          ) &&
+          !event.target.closest(
+            ".workflow-view-image"
+          )
         ) {
+  
           closeAllWorkflowPreviews();
+  
         }
   
       });
+  
+  
+      /* ESCAPE KEY TO CLOSE */
   
       document.addEventListener("keydown", (event) => {
   
