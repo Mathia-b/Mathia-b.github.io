@@ -1286,6 +1286,6 @@ a:focus-visible {
 }
 }
 
-.project-workflow-section + .project-case-grid {
-  margin-top: 75px;
+.project-workflow-section + .project-case-block {
+  margin-top: 55px;
 }
