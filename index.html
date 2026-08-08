@@ -1136,87 +1136,72 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+  
       const workflowSteps =
         document.querySelectorAll(".workflow-icon-step");
-
+  
       function closeAllWorkflowPreviews() {
         workflowSteps.forEach((step) => {
           step.classList.remove("is-open");
           step.setAttribute("aria-expanded", "false");
         });
       }
-
+  
       workflowSteps.forEach((step) => {
+  
+        const viewButton =
+          step.querySelector(".workflow-view-image");
+  
         const closeButton =
           step.querySelector(".workflow-preview-close");
-
-        step.addEventListener("click", (event) => {
-          if (event.target.closest(".workflow-hover-preview")) {
-            return;
-          }
-
-          event.stopPropagation();
-
-          const wasOpen =
-            step.classList.contains("is-open");
-
-          closeAllWorkflowPreviews();
-
-          if (!wasOpen) {
+  
+        if (viewButton) {
+          viewButton.addEventListener("click", (event) => {
+  
+            event.preventDefault();
+            event.stopPropagation();
+  
+            closeAllWorkflowPreviews();
+  
             step.classList.add("is-open");
             step.setAttribute("aria-expanded", "true");
-          }
-        });
-
-        step.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            event.stopPropagation();
-
-            const wasOpen =
-              step.classList.contains("is-open");
-
-            closeAllWorkflowPreviews();
-
-            if (!wasOpen) {
-              step.classList.add("is-open");
-              step.setAttribute("aria-expanded", "true");
-            }
-          }
-        });
-
-        if (closeButton) {
-          closeButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-        
-            step.classList.remove("is-open");
-            step.classList.add("preview-closed");
-            step.setAttribute("aria-expanded", "false");
-        
-            step.blur();
-          });
-        
-          step.addEventListener("mouseleave", () => {
-            step.classList.remove("preview-closed");
+  
           });
         }
+  
+        if (closeButton) {
+          closeButton.addEventListener("click", (event) => {
+  
+            event.preventDefault();
+            event.stopPropagation();
+  
+            step.classList.remove("is-open");
+            step.setAttribute("aria-expanded", "false");
+  
+          });
+        }
+  
       });
-
+  
       document.addEventListener("click", (event) => {
+  
         if (
-          !event.target.closest(".workflow-icon-step") &&
-          !event.target.closest(".workflow-hover-preview")
+          !event.target.closest(".workflow-hover-preview") &&
+          !event.target.closest(".workflow-view-image")
         ) {
           closeAllWorkflowPreviews();
         }
+  
       });
-
+  
       document.addEventListener("keydown", (event) => {
+  
         if (event.key === "Escape") {
           closeAllWorkflowPreviews();
         }
+  
       });
+  
     });
   </script>
 
