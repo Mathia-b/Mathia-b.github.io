@@ -552,7 +552,7 @@ img {
 }
 
 .project-case-header h3 {
-    color: var(--blue);
+    color: var(--muted);
     font-size: clamp(1.6rem, 2.5vw, 2.4rem);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -582,7 +582,7 @@ img {
 
 .case-label {
   color: #326efc;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.15em;
   margin-bottom: 12px;
@@ -1287,5 +1287,5 @@ a:focus-visible {
 }
 
 .project-workflow-section + .project-case-block {
-  margin-top: 55px;
+  margin-top: 45px;
 }
