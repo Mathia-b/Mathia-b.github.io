@@ -581,8 +581,8 @@ img {
 }
 
 .case-label {
-  color: #326efc;
-  font-size: 1.5rem;
+  color: var(--blue-light);
+  font-size: 1.2rem;
   font-weight: 900;
   letter-spacing: 0.15em;
   margin-bottom: 12px;
@@ -1287,5 +1287,10 @@ a:focus-visible {
 }
 
 .project-workflow-section + .project-case-block {
+
   margin-top: 45px;
+
+}
+.project-workflow-section + .project-case-block > .case-label {
+  color: var(--blue-light);
 }
